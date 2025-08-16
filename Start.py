@@ -2,6 +2,7 @@ import numpy as np
 
 arr1=np.array([12,12,12,12])
 arr2=np.array([12,12,12,12])
+print(arr1.size)
 print(arr1+arr2)
 print(type(arr1))
 
