@@ -216,3 +216,46 @@ for i in range(5):
     np.random.seed(i)
     print(np.random.randint(1, 10, size=5))
 
+
+
+print("splitingg")
+arr = np.arange(9)
+
+print(np.array_split(arr, 4))  
+print(np.split(arr, 3))  
+
+
+a = np.array([1,2,3])
+b = np.array([4,5,6])
+
+print(np.vstack([a,b]))
+# [[1 2 3]
+#  [4 5 6]]
+
+print(np.hstack([a,b]))
+# [1 2 3 4 5 6]
+
+
+
+arr = np.arange(6)   # [0 1 2 3 4 5]
+
+print(arr.reshape(2,3))  
+# [[0 1 2]
+#  [3 4 5]]
+mat = arr.reshape(2,3)
+print(mat.ravel())   # [0 1 2 3 4 5]
+print(mat.flatten())
+
+
+arr = np.array([1,2,2,3,3,3,4])
+print(np.unique(arr))  # [1 2 3 4]
+
+
+arr = np.array([1,2,3,4,5])
+
+np.save("my_array.npy", arr)  # Save
+print("saved")
+loaded = np.load("my_array.npy")  # Load
+print("loaded")
+
+print(loaded)  # [1 2 3 4 5]
