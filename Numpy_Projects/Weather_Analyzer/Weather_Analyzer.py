@@ -110,7 +110,6 @@ print("the days with humidity with more than 80% were",np.sum(humidity[mask]>80)
 print("the average temprature in San Jose in F is",np.mean(temperature[mask]*9/5+32))
 
 
-
 print("the hottest day overall was",date[np.argmax(temperature)],"with a temprature of",np.max(temperature))
 
 print("the coldest day overall was",date[np.argmin(temperature)],"with a temprature of",np.min(temperature))
