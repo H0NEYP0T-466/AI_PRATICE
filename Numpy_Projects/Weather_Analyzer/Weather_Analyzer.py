@@ -111,9 +111,15 @@ print("the average temprature in San Jose in F is",np.mean(temperature[mask]*9/5
 
 
 
-print("the hottest day overall was",date[np.argmax(temperature)])
-print("the coldest day overall was",date[np.argmin(temperature)])
+print("the hottest day overall was",date[np.argmax(temperature)],"with a temprature of",np.max(temperature))
 
+print("the coldest day overall was",date[np.argmin(temperature)],"with a temprature of",np.min(temperature))
+
+date_np = date.astype("datetime64[ns]") 
+in_2024 = (date_np >= np.datetime64("2024-01-01")) & (date_np < np.datetime64("2025-01-01"))
+
+custom_mask = (location == "New York") & in_2024
+print("the average temprature in New York in 2024 was",np.mean(temperature[custom_mask]))
 
 
 
