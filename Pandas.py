@@ -14,4 +14,6 @@ print(df)
 
 data=p.read_csv("data.csv",encoding="latin1")
 print(data)
-
+print(data.index)
+print(data.info())
+print(data.describe())

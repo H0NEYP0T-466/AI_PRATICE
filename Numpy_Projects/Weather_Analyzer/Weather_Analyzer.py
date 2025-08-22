@@ -124,3 +124,5 @@ print("the average temprature in New York in 2024 was",np.mean(temperature[custo
 
 
 
+
+
