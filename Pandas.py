@@ -32,11 +32,8 @@ print(maindata.loc[:, ["Company Names","Cars Names","Engines"]])  # only these c
 print(maindata.iloc[0:3, 0:3])         # first 3 rows, first 3 cols
 
 
-
-# Cars with 2 seats
-print("----")
-print(maindata[maindata["Seats"] == 2])
-
-
-
-
+print('----')
+maindata=maindata.dropna()  # drop rows with any missing values
+print(maindata)
+print("---")
+print(maindata.isnull().sum())  # check for missing values
