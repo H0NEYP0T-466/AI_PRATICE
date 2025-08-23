@@ -1,8 +1,25 @@
 import numpy as np
 import pandas as pd
 
-country_wise = pd.read_csv("country_wise_latest.csv")
 worldwide=pd.read_csv("worldometer_data.csv")
 
-print(country_wise.head(10))
 print(worldwide.tail(10))
+worldwide.fillna(0)
+print("the total registered cases of covid-19 are:")
+print(np.sum(worldwide['TotalCases']))
+print("the total deaths from covid-19 was:")
+print(np.sum(worldwide['TotalDeaths']))
+print("the total recovered cases from covid-19 are:")
+print(np.sum(worldwide['TotalRecovered']))
+print("the total deaths in asia are:")
+print(np.sum(worldwide[worldwide['Continent'] == 'Asia']['TotalDeaths']))
+print("the total deaths in pakistan are:")
+print(np.sum(worldwide[worldwide['Country/Region'] == 'Pakistan']['TotalDeaths']))
+print("the growth rate is:")
+print(np.sum(worldwide['TotalCases']) / np.sum(worldwide['TotalDeaths']))
+print("the recovery rate is:")
+print(np.sum(worldwide['TotalRecovered']) / np.sum(worldwide['TotalCases']))
+print("the moving average is:")
+print(worldwide['TotalCases'].rolling(window=7).mean().tail(1))
+print("the top 5 countries with highest number of cases are:")
+print(worldwide.nlargest(5, 'TotalCases')[['Country/Region', 'TotalCases']])
