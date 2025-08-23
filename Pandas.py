@@ -31,7 +31,6 @@ print(maindata.iloc[0, 1])             # first row, 2nd column → "SF90 STRADAL
 print(maindata.loc[:, ["Company Names","Cars Names","Engines"]])  # only these cols
 print(maindata.iloc[0:3, 0:3])         # first 3 rows, first 3 cols
 
-
 print('----')
 maindata=maindata.dropna()  # drop rows with any missing values
 print(maindata)
