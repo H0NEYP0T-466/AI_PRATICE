@@ -1,24 +1,15 @@
 import matplotlib.pyplot as plt
 
-# Data
 x = [1, 2, 3, 4, 5]
-y = [2, 4, 6, 8, 10]
+y1 = [2, 4, 6, 8, 10]
+y2 = [1, 4, 9, 16, 25]
 
-# Basic line plot
-plt.plot(x, y, label="y = 2x")
+plt.plot(x, y1, label="y = 2x")     # First line
+plt.plot(x, y2, label="y = x^2")    # Second line
 
-# Titles & labels
-plt.title("Basic Line Plot")
+plt.title("Legend Example")
 plt.xlabel("X-axis")
 plt.ylabel("Y-axis")
 
-# Legend
-plt.legend()
-
-# Save the figure
-#plt.savefig("plot.png")
-
-# Show plot
+plt.legend()   # <-- This shows the little box
 plt.show()
-
-
