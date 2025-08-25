@@ -11,5 +11,5 @@ plt.title("Legend Example")
 plt.xlabel("X-axis")
 plt.ylabel("Y-axis")
 
-plt.legend()   # <-- This shows the little box
+plt.legend()   
 plt.show()
