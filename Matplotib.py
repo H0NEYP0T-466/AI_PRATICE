@@ -49,10 +49,10 @@ plt.show()
 
 fig3=plt.gcf()  # Get the current figure
 plt.close("fig3")
-#data = np.random.randn(1000)  
 
-data=[1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
-plt.hist(data, bins=10, color="purple", edgecolor="black")
+data = np.random.randn(1000)  
+
+plt.hist(data, bins=30, color="purple", edgecolor="black")
 plt.xlabel("Value")
 plt.ylabel("Frequency")
 plt.title("Histogram Example")
@@ -118,3 +118,94 @@ plt.tight_layout()
 plt.show()
 
 
+
+
+
+image = np.random.rand(28, 28)
+
+plt.imshow(image, cmap='gray')  # 'gray' for grayscale
+plt.title("Grayscale Image")
+plt.axis("off")  # hide axis
+plt.show()
+
+
+rgb_image = np.random.rand(28, 28, 3)
+plt.subplot(1, 2, 1)
+plt.imshow(image, cmap='gray')
+plt.title("Grayscale")
+
+plt.subplot(1, 2, 2)
+plt.imshow(rgb_image)
+plt.title("RGB")
+
+plt.show()
+
+
+
+# Let's pretend we have 6 images
+images = [np.random.rand(28, 28) for _ in range(6)]
+
+plt.figure(figsize=(8, 6))
+
+for i in range(6):
+    plt.subplot(2, 3, i+1)  # 2 rows, 3 cols
+    plt.imshow(images[i], cmap='gray')
+    plt.axis("off")
+    plt.title(f"Image {i+1}")
+
+plt.tight_layout()
+plt.show()
+
+
+# Example: classifier predicted digit
+pred_label = 3
+true_label = 8
+
+plt.imshow(image, cmap='gray')
+plt.title(f"Predicted: {pred_label} | Actual: {true_label}", color="red")
+plt.axis("off")
+plt.show()
+
+
+cm = np.array([[5, 2, 0],
+               [1, 7, 1],
+               [0, 2, 9]])
+
+classes = ["Cat", "Dog", "Rabbit"]
+
+plt.imshow(cm, cmap="Blues")
+plt.colorbar()
+
+# Add text labels
+for i in range(cm.shape[0]):
+    for j in range(cm.shape[1]):
+        plt.text(j, i, cm[i, j], ha="center", va="center", color="black")
+
+plt.xticks(range(len(classes)), classes)
+plt.yticks(range(len(classes)), classes)
+plt.xlabel("Predicted")
+plt.ylabel("Actual")
+plt.title("Confusion Matrix")
+plt.show()
+
+
+import time
+
+losses = []
+
+plt.ion()  # turn on interactive mode
+fig, ax = plt.subplots()
+
+for epoch in range(1, 21):
+    loss = np.exp(-epoch/5) + np.random.rand()*0.05  # fake loss
+    losses.append(loss)
+    
+    ax.clear()
+    ax.plot(losses, marker="o", color="red")
+    ax.set_title(f"Training Loss (Epoch {epoch})")
+    ax.set_xlabel("Epoch")
+    ax.set_ylabel("Loss")
+    plt.pause(0.5)  # pause to update
+    
+plt.ioff()
+plt.show()
