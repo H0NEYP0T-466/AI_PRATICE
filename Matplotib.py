@@ -209,3 +209,5 @@ for epoch in range(1, 21):
     
 plt.ioff()
 plt.show()
+
+#done
