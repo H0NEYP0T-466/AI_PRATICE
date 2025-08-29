@@ -11,3 +11,8 @@ copy['Gender']=labelencoder.fit_transform(copy['Gender'])
 copy['Passed']=labelencoder.fit_transform(copy['Passed'])
 
 print(copy[['Gender','Passed']].head(10))
+
+#one hot encoding on Year
+copy_encoded=pd.get_dummies(copy,columns=['Year'],dtype=int)
+print("one hot encoding")
+print(copy_encoded.head(10))
