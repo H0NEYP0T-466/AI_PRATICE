@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
+import seaborn as sns
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, classification_report
 
 model=LogisticRegression(max_iter=1000)
@@ -24,7 +25,7 @@ model.fit(X_train, y_train)
 prediction=model.predict(X_test)
 
 
-#custom metrics
+
 print('Enter the Age:')
 age = int(input())
 print('Enter the Gender (1:Male/0:Female):')
@@ -84,3 +85,20 @@ print("Recall:", recall_score(y_test, prediction))
 print("F1 Score:", f1_score(y_test, prediction))
 print("\nConfusion Matrix:\n", confusion_matrix(y_test, prediction))
 print("\nClassification Report:\n", classification_report(y_test, prediction))
+
+
+plt.figure(figsize=(6, 5))
+sns.heatmap(confusion_matrix(y_test, prediction), annot=True, fmt='d', cmap='Blues', cbar=False)
+plt.title("Confusion Matrix")
+plt.xlabel("Predicted")
+plt.ylabel("Actual")
+plt.show()
+
+plt.figure(figsize=(8, 6))
+sns.scatterplot(data=copyData, x="AGE", y="SMOKING", hue="LUNG_CANCER", palette="coolwarm", alpha=0.7)
+
+
+plt.scatter(custom_data['AGE'], custom_data['SMOKING'], color='black', s=200, edgecolor="yellow", marker="X", label="Custom Input")
+plt.title("Lung Cancer Dataset (Age vs Smoking) + Custom Input")
+plt.legend()
+plt.show()
