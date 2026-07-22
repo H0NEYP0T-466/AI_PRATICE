@@ -36,7 +36,7 @@ custom_prediction = model.predict([[size, weight]])
 if custom_prediction[0] == 0:
     print("This is likely an Apple 🍎")
 else:
-    print("This is likely a Mango 🥭")
+    print("This is likely a Mango 🥭") 
 
 print("Accuracy:", accuracy_score(y_test, predictions))
 print("Precision:", precision_score(y_test, predictions))
